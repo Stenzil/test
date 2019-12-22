@@ -32,7 +32,7 @@ db.so.create_index([("geo","2dsphere")])
     }
 })
 
-@author: xor
+@author: stenzil
 """
 
 from fastapi import FastAPI
@@ -47,7 +47,7 @@ request= Request
 app = FastAPI()
 file=pd.read_csv('IN.csv')
 k=file.values.tolist()
-cli=MongoClient('mongodb+srv://stenzil:pandey@cluster0-6cu9y.mongodb.net/test?retryWrites=true&w=majority')
+cli=MongoClient('mongodb+srv://stenzil:XXXXX@cluster0-6cu9y.mongodb.net/test?retryWrites=true&w=majority')
 db=cli.get_database('TASK')
 records=db.somedata
 reco=db.org
