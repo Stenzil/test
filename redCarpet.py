@@ -3,35 +3,6 @@
 """
 Created on Sat Dec 21 19:22:16 2019
 
-for doc in records.aggregate([
-    { "$match": {
-        "latitude": { "$gte": 20, "$lte": 20.15 }
-    }}
-]):
-    print(doc)
-
-db.so.create_index([("geo","2dsphere")])
-
- db.so.find({"geo": {
-    "$near": {
-        "$geometry": {
-            "type": "Point" ,
-            "coordinates": [ 60, 22 ]
-        },
-        "$maxDistance": 80000
-    }
-}}).count()
-    
-    db.so.insert_one({
-    "geo" : {
-        "type" : "Point",
-        "coordinates" : [ 
-            61.1111, 
-            23.111123
-        ]
-    }
-})
-
 @author: stenzil
 """
 
