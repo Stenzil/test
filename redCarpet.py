@@ -18,7 +18,7 @@ request= Request
 app = FastAPI()
 file=pd.read_csv('IN.csv')
 k=file.values.tolist()
-cli=MongoClient('mongodb+srv://stenzil:XXXXX@cluster0-6cu9y.mongodb.net/test?retryWrites=true&w=majority')
+cli=MongoClient('mongodb+srv://stenzil:pandey@cluster0-6cu9y.mongodb.net/test?retryWrites=true&w=majority')
 db=cli.get_database('TASK')
 records=db.somedata
 reco=db.org
@@ -42,11 +42,14 @@ app = FastAPI()
 
 @app.get("/get_location/")
 async def get_location(lat: LAT):
-    record=reco.find_one({"coordinates":[lat.latitude,lat.longitude]})    
+    record=db.so.find_one(
+{	"geo" : {
+		"type" : "Point",
+		"coordinates" : [lat.latitude,lat.longitude]
+	}})
     del record['_id']
     del record['accuracy']
-    del record['type']
-    del record['coordinates']
+    del record['geo']
     return record
     
 @app.post("/post_location/")
