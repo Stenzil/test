@@ -15,7 +15,6 @@ from pymongo import MongoClient
 
 
 request= Request
-app = FastAPI()
 file=pd.read_csv('IN.csv')
 k=file.values.tolist()
 cli=MongoClient('mongodb+srv://stenzil:pandey@cluster0-6cu9y.mongodb.net/test?retryWrites=true&w=majority')
