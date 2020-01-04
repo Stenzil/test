@@ -13,11 +13,9 @@ class PythonOrgSearch(unittest.TestCase):
 
     def test_get_location(self):
         driver = self.driver
-        x="aksjhdakjsd"
         k=gl.delay(28.65,77.2167)
 
         pq={'key': 'IN/110003', 'place_name': 'Aliganj', 'admin_name1': 'New Delhi'}
-        print(k)
         assert pq== AsyncResult(str(k),app=app).get()
     def test_get_using_postgre(self):
         driver = self.driver
